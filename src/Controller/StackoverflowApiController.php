@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use OpenApi\Annotations as OA;
 
 class StackoverflowApiController extends AbstractController
 {
@@ -23,6 +24,64 @@ class StackoverflowApiController extends AbstractController
      * @param Request $request
      * @param StackoverflowApi $api
      * @return Response
+     * @OA\Response(
+     *     response=200,
+     *     description="Returns stackoverflow questions that match",
+     * )
+     * @OA\Parameter(
+     *     name="tagged",
+     *     in="query",
+     *     description="Tags separated by semicolon",
+     *     @OA\Schema(type="string")
+     * )
+     * @OA\Parameter(
+     *     name="fromdate[day]",
+     *     in="query",
+     *     description="From date,part of date range(day)",
+     *     @OA\Schema(type="integer")
+     * )
+     * @OA\Parameter(
+     *     name="fromdate[month]",
+     *     in="query",
+     *     description="From date,part of date range(month)",
+     *     @OA\Schema(type="integer")
+     * )
+     * @OA\Parameter(
+     *     name="fromdate[year]",
+     *     in="query",
+     *     description="From date,part of date range(year)",
+     *     @OA\Schema(type="integer")
+     * )
+     * @OA\Parameter(
+     *     name="todate[day]",
+     *     in="query",
+     *     description="To date,part of date range(day)",
+     *     @OA\Schema(type="integer")
+     * )
+     * @OA\Parameter(
+     *     name="todate[month]",
+     *     in="query",
+     *     description="To date,part of date range(month)",
+     *     @OA\Schema(type="integer")
+     * )
+     * @OA\Parameter(
+     *     name="todate[year]",
+     *     in="query",
+     *     description="To date,part of date range(year)",
+     *     @OA\Schema(type="integer")
+     * )
+     * @OA\Parameter(
+     *     name="order",
+     *     in="query",
+     *     description="Order by desc or asc",
+     *     @OA\Schema(type="string")
+     * )
+     * @OA\Parameter(
+     *     name="sort",
+     *     in="query",
+     *     description="Sort by activity, votes, creation, hot, week or month",
+     *     @OA\Schema(type="string")
+     * )
     */
     public function api(Request $request, StackoverflowApi $api): Response
     {
