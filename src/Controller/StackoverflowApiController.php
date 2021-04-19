@@ -27,10 +27,12 @@ class StackoverflowApiController extends AbstractController
     public function api(Request $request, StackoverflowApi $api): Response
     {
         $now=new DateTime();
+        $last_week = new DateTime();
+        $last_week->modify('-1 week');
         $defaultData = [
-            'tagged' => 'symfony',
+            'tagged' => 'php',
+            'fromdate'=>$last_week,
             'todate'=> $now,
-            'fromdate'=> $now
         ];
         $form = $this->createForm(StackoverflowProxyType::class,$defaultData);
         $form->handleRequest($request);

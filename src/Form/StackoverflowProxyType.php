@@ -15,12 +15,22 @@ class StackoverflowProxyType extends AbstractType
     {
         $builder->setMethod('GET');
         $builder
-            ->add('tagged',TextType::class)
+            ->add('tagged',TextType::class,[
+                'label'=>'Tagged: (TAB for sepation)'
+            ])
             ->add('fromdate',DateType::class,[
-                'label'=>'From date:'
+                'label'=>'From date:',
+                'format' => 'dd MM yyyy',
+                'placeholder' => [
+                     'day' => 'Day', 'month' => 'Month', 'year' => 'Year'
+                ]
             ])
             ->add('todate',DateType::class,[
-                'label'=>'To date:'
+                'label'=>'To date:',
+                'format' => 'dd MM yyyy',
+                'placeholder' => [
+                    'day' => 'Day', 'month' => 'Month', 'year' => 'Year'
+                ]
             ])
             ->add('order',ChoiceType::class,[
                 'choices'=> [

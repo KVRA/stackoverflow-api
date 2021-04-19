@@ -1,0 +1,32 @@
+{
+    "devDependencies": {
+        "@symfony/stimulus-bridge": "^2.0.0",
+        "@symfony/webpack-encore": "^1.0.0",
+        "@tailwindcss/postcss7-compat": "^2.1.0",
+        "autoprefixer": "^9",
+        "core-js": "^3.0.0",
+        "postcss": "^7",
+        "postcss-loader": "^5.0.0",
+        "regenerator-runtime": "^0.13.2",
+        "sass": "^1.32.10",
+        "sass-loader": "^11.0.0",
+        "stimulus": "^2.0.0",
+        "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress",
+        "build:css": "tailwind build src/style.css -o dist/style.css"
+    },
+    "dependencies": {
+        "@yaireo/tagify": "^4.0.5",
+        "glob-all": "^3.2.1",
+        "path": "^0.12.7",
+        "purgecss-webpack-plugin": "^4.0.3"
+    }
+}
